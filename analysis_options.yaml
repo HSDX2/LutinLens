@@ -1,0 +1,18 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - third_party/**
+    - ios/**
+    - android/**
+    - fastlane/**
+    - build/**
+
+  language:
+    strict-casts: false
+    strict-inference: false
+    strict-raw-types: false
+
+lint:
+  rules:
+    avoid_print: false

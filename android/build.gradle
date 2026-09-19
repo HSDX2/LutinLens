@@ -1,0 +1,36 @@
+allprojects {
+    repositories {
+        // Local project Maven repo containing threeegl
+        maven { url uri("$rootDir/maven-repo") }
+        mavenLocal()
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+  project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Ensure all Android modules (including plugins) compile with a modern SDK.
+// This avoids AAPT errors like "resource android:attr/lStar not found" when
+// a plugin uses newer Material components but sets an older compileSdk.
+subprojects { subproject ->
+  afterEvaluate {
+    if ((subproject.plugins.hasPlugin('com.android.application') ||
+        subproject.plugins.hasPlugin('com.android.library')) &&
+        subproject.hasProperty('android')) {
+      subproject.android {
+        compileSdkVersion 36
+        if (hasProperty('targetSdkVersion')) {
+          targetSdkVersion 36
+        }
+      }
+    }
+  }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch (Chrome)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "chrome",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Launch (Android)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Profile Mode",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/main.dart"
+        }
+    ]
+}
