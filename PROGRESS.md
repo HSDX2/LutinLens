@@ -54,3 +54,8 @@ App 并非直连 MCP，而是 3 个 HTTP 端点（见 `lib/src/services/ai_sugge
 4. **验证 DeepSeek 多图能力**：重点实测 `framing_advisor` 一次传多张历史图 + 严格 JSON 输出的稳定性（这是换模型后最需要验证的点）。
 5. （可选）App 正式签名 keystore，替换 debug 签名。
 6. （可选）服务端可接 Web UI（原仓库有 `external/nat-ui` 子模块，未拉取，可选）。
+
+## 补充文档
+
+- **App 正式签名**：见本仓库 `SIGNING.md`
+- **服务端 WSL2 部署**：见服务端仓库 `DEPLOY_WSL2.md`
